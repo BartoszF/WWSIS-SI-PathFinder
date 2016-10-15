@@ -1,5 +1,6 @@
 package pl.bartoszf;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,11 +9,16 @@ import java.util.List;
 public class Node
 {
     private Vector2 position;
-    private List<Node> connections;
+    private ArrayList<Node> connections = new ArrayList<>();
 
     public Node(Vector2 pos)
     {
         this.position = pos;
+    }
+
+    public Node(double X, double Y)
+    {
+        this.position = new Vector2(X,Y);
     }
 
     public void addEdge(Node n)
@@ -25,4 +31,9 @@ public class Node
 
     public Vector2 getPos() {return this.position;}
     public double dist(Node n) {return Vector2.Dist(position, n.getPos());}
+
+    public String toString()
+    {
+        return "Node " + position.toString();
+    }
 }

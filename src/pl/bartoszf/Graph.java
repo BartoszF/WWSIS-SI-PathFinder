@@ -1,5 +1,6 @@
 package pl.bartoszf;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 public class Graph
 {
-    private List<Node> nodes;
+    private ArrayList<Node> nodes = new ArrayList<>();
     private Node starting;
 
     public Graph() {}
@@ -21,8 +22,23 @@ public class Graph
         this.nodes.add(n);
     }
 
-    public List<Node> getNodes() {return nodes;}
+    public ArrayList<Node> getNodes() {return nodes;}
     public Node getNode(int i) {return nodes.get(i);}
 
+    public void setStarting(int i) {starting = nodes.get(i);}
+    public Node getStarting() {return starting;}
+
     public double dist(int a, int b) { return nodes.get(a).dist(nodes.get(b));}
+
+    public String toString()
+    {
+        int i=1;
+        String val = "";
+        for(Node x: nodes)
+        {
+            val += i++ +": "+x.toString() + "\n";
+        }
+
+        return val;
+    }
 }
