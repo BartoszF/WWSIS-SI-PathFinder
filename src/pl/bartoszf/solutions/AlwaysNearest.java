@@ -13,10 +13,8 @@ import java.util.concurrent.TimeUnit;
  * Created by Kebab on 15.10.2016.
  */
 @aSolution
-public class AlwaysNearest implements Solution
+public class AlwaysNearest extends Solution
 {
-    long start=0,stop=0;
-    LinkedList<Node> visited = new LinkedList<Node>();
 
     @Override
     public void resolve(Graph g)
@@ -65,35 +63,5 @@ public class AlwaysNearest implements Solution
     @Override
     public String getName() {
         return "Always Nearest Town";
-    }
-
-    @Override
-    public long getTime() {
-        return TimeUnit.SECONDS.convert(stop-start,TimeUnit.NANOSECONDS);
-    }
-
-    @Override
-    public double getDist()
-    {
-        double dist = 0;
-        for(int i=0;i<visited.size()-1;i++)
-        {
-            dist += visited.get(i).dist(visited.get(i+1));
-        }
-
-        return dist;
-    }
-
-    @Override
-    public List<Node> getVisited() {
-        return visited;
-    }
-
-    @Override
-    public void printVisited() {
-        for(Node x : visited)
-        {
-            System.out.println(x.toString());
-        }
     }
 }

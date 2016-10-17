@@ -37,6 +37,6 @@ public class Main {
 
         System.out.println("Droga : " + sol1.getDist());
 
-        System.out.println("Czas wykonania : " + sol1.getTime());
+        System.out.println("Czas wykonania : " + sol1.getTime() + " sek.");
     }
 }
