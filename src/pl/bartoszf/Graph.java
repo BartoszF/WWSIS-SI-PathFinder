@@ -28,6 +28,13 @@ public class Graph
     public void setStarting(int i) {starting = nodes.get(i);}
     public Node getStarting() {return starting;}
 
+    public void resetVisited() {
+        for(Node x: nodes)
+        {
+            x.unsetVisited();
+        }
+    }
+
     public double dist(int a, int b) { return nodes.get(a).dist(nodes.get(b));}
 
     public String toString()

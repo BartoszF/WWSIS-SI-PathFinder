@@ -39,13 +39,15 @@ public class Solution
     }
 
     public void printVisited() {
-        for(Node x : visited)
+        for(int i=1;i<visited.size();i++)
+        {
+            System.out.println(visited.get(i-1).toString() + " -> " + visited.get(i).toString() + " = " + visited.get(i-1).dist(visited.get(i)));
+        }
+        /*for(Node x : visited)
         {
             System.out.println(x.toString());
-        }
+        }*/
     }
 }
-
-@interface aSolution {}
 
 

@@ -1,5 +1,6 @@
 package pl.bartoszf;
 
+import pl.bartoszf.solutions.AlwaysAverage;
 import pl.bartoszf.solutions.AlwaysNearest;
 
 import java.util.Scanner;
@@ -27,8 +28,11 @@ public class Main {
 
         System.out.print("Podaj numer miasta startowego: ");
 
-        g.setStarting(in.nextInt()-1);
+        int start = in.nextInt()-1;
 
+        g.setStarting(start);
+
+        System.out.println("Zawsze najbliższe : " );
         AlwaysNearest sol1 = new AlwaysNearest();
         sol1.resolve(g);
 
@@ -38,5 +42,19 @@ public class Main {
         System.out.println("Droga : " + sol1.getDist());
 
         System.out.println("Czas wykonania : " + sol1.getTime() + " sek.");
+
+        System.out.println("Zawsze średnie : " );
+        AlwaysAverage sol2 = new AlwaysAverage();
+        g.resetVisited();
+        g.setStarting(start);
+
+        sol2.resolve(g);
+
+        System.out.println("Kolejność : " );
+        sol2.printVisited();
+
+        System.out.println("Droga : " + sol2.getDist());
+
+        System.out.println("Czas wykonania : " + sol2.getTime() + " sek.");
     }
 }
