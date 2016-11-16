@@ -72,6 +72,6 @@ public class AlwaysAverage extends Solution
 
     @Override
     public String getName() {
-        return "Always Nearest Town";
+        return "Always Average Route To Town";
     }
 }

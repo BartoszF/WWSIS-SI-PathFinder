@@ -2,6 +2,7 @@ package pl.bartoszf;
 
 import pl.bartoszf.solutions.AlwaysAverage;
 import pl.bartoszf.solutions.AlwaysNearest;
+import pl.bartoszf.solutions.AntColony;
 
 import java.util.Scanner;
 
@@ -56,5 +57,19 @@ public class Main {
         System.out.println("Droga : " + sol2.getDist());
 
         System.out.println("Czas wykonania : " + sol2.getTime() + " sek.");
+
+        System.out.println("Mrówkowy : " );
+        AntColony sol3 = new AntColony();
+        g.resetVisited();
+        g.setStarting(start);
+
+        sol3.resolve(g,30);
+
+        System.out.println("Kolejność : " );
+        sol3.printVisited();
+
+        System.out.println("Droga : " + sol3.getDist());
+
+        System.out.println("Czas wykonania : " + sol3.getTime() + " sek.");
     }
 }

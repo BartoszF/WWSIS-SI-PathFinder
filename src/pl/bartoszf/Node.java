@@ -37,6 +37,7 @@ public class Node
     public void unsetVisited() {visited=false;}
     public boolean getVisited() {return visited;}
 
+    public int getIndex() {return this.index;}
     public void setIndex(int index) {this.index = index;}
 
     public ArrayList<Node> getConnections() {return connections;}
