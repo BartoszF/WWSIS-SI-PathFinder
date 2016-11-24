@@ -63,7 +63,7 @@ public class Main {
         g.resetVisited();
         g.setStarting(start);
 
-        sol3.resolve(g,30);
+        sol3.resolve(g,50);
 
         System.out.println("Kolejność : " );
         sol3.printVisited();

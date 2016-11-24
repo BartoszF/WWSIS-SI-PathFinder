@@ -5,6 +5,7 @@ import pl.bartoszf.Node;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 class Ant {
     public List<Node> visited = new ArrayList<>();
@@ -31,6 +32,7 @@ public class AntColony extends Solution {
         }
 
         start = System.nanoTime();
+        Random r = new Random();
 
         for(int i=0;i<numAnt;i++) {
             Ant ant = new Ant();
@@ -61,8 +63,20 @@ public class AntColony extends Solution {
                     double fer_res = poly / (toVisit * poly);
                     if(fer_res > best)
                     {
-                        best = fer_res;
+                        double rand = r.nextDouble();
+                        if(rand <= fer_res) {
+                            best = fer_res;
+                            bestNode = x;
+                        }
+                    }
+                }
+
+                if(bestNode == null)
+                {
+                    for (Node x : act.getConnections()) {
+                        if(ant.visited.contains(x)) continue;
                         bestNode = x;
+                        break;
                     }
                 }
 
